@@ -1,0 +1,33 @@
+<html>
+<head>
+	<script src="snap.svg-min.js"></script>
+	<script src="Colorwheel.Picker.js"></script>
+	<script type="text/javascript">
+		var paper;
+		var colorPicker;
+		window.onload=function(){
+
+			var colourChanged = function (colour) {
+				document.getElementById('selected-colour').style.backgroundColor = colour.hex;
+		    };
+		    colorPicker = Snap("#svg").colorpicker(300, '#ff2d00', colourChanged);
+		};
+
+	    function colorBtnClick () {
+	    	document.getElementById('selected-colour').style.backgroundColor = colorPicker.getSelectedColor().hex;
+	    }	
+		</script>
+
+		<style type="text/css">
+		body {
+		    
+		}
+	</style>
+</head>
+<body style="background: #333 !important;">
+	<button onclick="colorBtnClick();">Get Colour</button>
+	<div id="selected-colour" style="width: 60px; height: 60px; background-color: rgb(115, 255, 69);"></div>
+	<div style="margin-top: 80px; margin-left:80px;">
+	<svg id="svg" height="600" width="600"></svg></div>
+</body>
+</html>
